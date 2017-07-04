@@ -1,1 +1,1 @@
-# cordova-plugin-amapmaps
+# cordova-plugin-amap
