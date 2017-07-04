@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-amap" version="1.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>cordova-plugin-amap</name>
+    <js-module name="cordova-plugins-amap" src="www/amap.js" >
+        <clobbers target="cordova-plugins-amap" />
+    </js-module>
+
+    <description>Amap Maps native SDK for Android and iOS</description>
+    <repo>https://github.com/Silverbase-FE/cordova-plugin-amap.git</repo>
+    <issue>https://github.com/Silverbase-FE/cordova-plugin-amap/issues</issue>
+
+    <author>Silverbase-FE</author>
+
+    <license>Apache 2.0 License</license>
+
+    <keywords>amap, maps, cordova, phonegap, ionic, android, ios</keywords>
+    
+    <engines>
+        <engine name="cordova-android" version=">=5.1.0" />
+        <engine name="cordova-ios" version=">=4.0.0" />
+    </engines>
+    
+    <!-- android -->
+    <platform name="android">
+        <preference name="API_KEY_FOR_ANDROID" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AMapPlugin">
+                <param name="android-package" value="com.amap.cordova.AMapPlugin" />
+            </feature>
+        </config-file>
+
+        <!-- android -->
+        <source-file src="src/android/AMapPlugin.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/MapActivity.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/TraceActivity.java" target-dir="src/com/amap/cordova" />
+        
+        <source-file src="src/android/res/drawable-hdpi/location_marker.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/res/drawable-land-hdpi/location_marker.png" target-dir="res/drawable-land-hdpi" />
+        <source-file src="src/android/res/drawable-land-ldpi/location_marker.png" target-dir="res/drawable-land-ldpi" />
+        <source-file src="src/android/res/drawable-land-mdpi/location_marker.png" target-dir="res/drawable-land-mdpi" />
+        <source-file src="src/android/res/drawable-land-xhdpi/location_marker.png" target-dir="res/drawable-land-xhdpi" />
+        <source-file src="src/android/res/drawable-ldpi/location_marker.png" target-dir="res/drawable-ldpi" />
+        <source-file src="src/android/res/drawable-mdpi/location_marker.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/res/drawable-port-hdpi/location_marker.png" target-dir="res/drawable-port-hdpi" />
+        <source-file src="src/android/res/drawable-port-ldpi/location_marker.png" target-dir="res/drawable-port-ldpi" />
+        <source-file src="src/android/res/drawable-port-mdpi/location_marker.png" target-dir="res/drawable-port-mdpi" />
+        <source-file src="src/android/res/drawable-port-xhdpi/location_marker.png" target-dir="res/drawable-port-xhdpi" />
+        <source-file src="src/android/res/drawable-xhdpi/location_marker.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="src/android/res/drawable-xxhdpi/location_marker.png" target-dir="res/drawable-xxhdpi" />
+        
+        <source-file src="src/android/AMap_2DMap_V2.9.0_20160525.jar" target-dir="libs" />
+        <source-file src="src/android/AMap_Location_V2.2.0_20151222.jar" target-dir="libs" />
+        
+        <source-file src="src/android/res/layout/map_activity.xml" target-dir="res/layout" />
+        
+        <source-file src="src/android/res/layout/trace_activity.xml" target-dir="res/layout" />
+        
+        <source-file src="src/android/res/layout/comm_button_arrow.png" target-dir="res/mipmap" />
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <!--用于进行网络定位-->
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+            <!--用于访问GPS定位-->
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+            <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+            <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+            <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+            <!--用于访问网络，网络定位需要上网-->
+            <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+            <!-- 用于读取手机当前的状态-->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+            <!-- 写入扩展存储，向扩展卡写入数据，用于写入缓存定位数据-->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+            <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"/>
+            <!--定位包、导航包需要的额外权限（注：基础权限也需要） -->
+            <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+            <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- 定位需要的服务 -->
+            <service android:name="com.amap.api.location.APSService" />
+            <!--APIKey-->
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="3d9443e8885047711e5f799002b60e6d" />
+            <!--  android:value="3d9443e8885047711e5f799002b60e6d" />-->
+            <activity android:label="客户地图" android:name="com.yxt.cordova.MapActivity" />
+            <activity android:label="我的轨迹" android:name="com.yxt.cordova.TraceActivity" />
+        </config-file>
+        
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AMap4YxtPlugin">
+                <param name="ios-package" value="CDVAMap4Yxt"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVAMap4Yxt.h" />
+        <source-file src="src/ios/CDVAMap4Yxt.m" />
+        <header-file src="src/ios/MAMutablePolylineRenderer.h" />
+        <source-file src="src/ios/MAMutablePolylineRenderer.m" />
+        <header-file src="src/ios/MAMutablePolyline.h" />
+        <source-file src="src/ios/MAMutablePolyline.m" />
+        <header-file src="src/ios/SBGMapHeaderView.h" />
+        <source-file src="src/ios/SBGMapHeaderView.m" />
+        
+        <!--资源文件-->
+        <resource-file src="src/ios/MAMapKit.framework/AMap.bundle" />
+        <resource-file src="src/ios/locationIcon@2x.png" />
+        <resource-file src="src/ios/locationIcon@3x.png" />
+        <resource-file src="src/ios/naviBackIcon@2x.png" />
+        <resource-file src="src/ios/naviBackIcon@3x.png" />
+        
+        <!--引入framework-->
+        <framework src="src/ios/AMapLocationKit.framework" custom="true" />
+        <framework src="src/ios/AMapFoundationKit.framework" custom="true" />
+        <framework src="src/ios/MAMapKit.framework" custom="true" />
+        
+        <framework src="UIKit.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="QuartzCore.framework" />
+        <framework src="Security.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="AdSupport.framework" />
+        <framework src="JavaScriptCore.framework" />
+        <framework src="GLKit.framework" />
+        <framework src="libstdc++.6.0.9.tbd"/>
+        <framework src="libc++.tbd" />
+        
+        <!--XCode9.1存在BUG 需手动添加下-->
+        <framework src="libz.tbd" />
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>App中签到等功能需要使用系统定位服务，请允许</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+            <string>App中签到等功能需要使用系统定位服务，请允许</string>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+        
+        <!--APIKey 请自行配置 参照高德官网-->
+        <config-file target="*-Info.plist" parent="AMapApiKey">
+            <string>1053b9d613861b61c86158996279fcae</string>
+        </config-file>
+        
+    </platform>
+</plugin>
