@@ -49,13 +49,11 @@
         <source-file src="src/android/res/drawable-xhdpi/location_marker.png" target-dir="res/drawable-xhdpi" />
         <source-file src="src/android/res/drawable-xxhdpi/location_marker.png" target-dir="res/drawable-xxhdpi" />
         
-        <source-file src="src/android/AMap_2DMap_V2.9.0_20160525.jar" target-dir="libs" />
-        <source-file src="src/android/AMap_Location_V2.2.0_20151222.jar" target-dir="libs" />
+        <source-file src="src/android/plugin/Android_Map3D_SDK_V5.2.1_20170630.jar" target-dir="libs" />
+        <source-file src="src/android/plugin/AMap_Search_V5.2.1_20170630.jar" target-dir="libs" />
         
         <source-file src="src/android/res/layout/map_activity.xml" target-dir="res/layout" />
-        
         <source-file src="src/android/res/layout/trace_activity.xml" target-dir="res/layout" />
-        
         <source-file src="src/android/res/layout/comm_button_arrow.png" target-dir="res/mipmap" />
         
         <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -85,10 +83,9 @@
             <!-- 定位需要的服务 -->
             <service android:name="com.amap.api.location.APSService" />
             <!--APIKey-->
-            <meta-data android:name="com.amap.api.v2.apikey" android:value="3d9443e8885047711e5f799002b60e6d" />
-            <!--  android:value="3d9443e8885047711e5f799002b60e6d" />-->
-            <activity android:label="客户地图" android:name="com.yxt.cordova.MapActivity" />
-            <activity android:label="我的轨迹" android:name="com.yxt.cordova.TraceActivity" />
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="$API_KEY_FOR_ANDROID" />
+            <activity android:label="客户地图" android:name="com.amap.cordova.MapActivity" />
+            <activity android:label="我的轨迹" android:name="com.amap.cordova.TraceActivity" />
         </config-file>
         
     </platform>
