@@ -91,13 +91,14 @@
     </platform>
     
     <platform name="ios">
+        <preference name="API_KEY_FOR_IOS" />
         <config-file target="config.xml" parent="/*">
-            <feature name="AMap4YxtPlugin">
-                <param name="ios-package" value="CDVAMap4Yxt"/>
+            <feature name="AMap4Plugin">
+                <param name="ios-package" value="CDVAMap"/>
             </feature>
         </config-file>
-        <header-file src="src/ios/CDVAMap4Yxt.h" />
-        <source-file src="src/ios/CDVAMap4Yxt.m" />
+        <header-file src="src/ios/CDVAMap4.h" />
+        <source-file src="src/ios/CDVAMap4.m" />
         <header-file src="src/ios/MAMutablePolylineRenderer.h" />
         <source-file src="src/ios/MAMutablePolylineRenderer.m" />
         <header-file src="src/ios/MAMutablePolyline.h" />
@@ -150,7 +151,7 @@
         
         <!--APIKey 请自行配置 参照高德官网-->
         <config-file target="*-Info.plist" parent="AMapApiKey">
-            <string>1053b9d613861b61c86158996279fcae</string>
+            <string>$API_KEY_FOR_IOS</string>
         </config-file>
         
     </platform>
