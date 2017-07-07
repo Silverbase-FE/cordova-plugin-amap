@@ -92,32 +92,34 @@
     
     <platform name="ios">
         <preference name="API_KEY_FOR_IOS" />
+        <preference name="LOCATION_USAGE_DESCRIPTION" default="APP需要获取您的定位信息">
         <config-file target="config.xml" parent="/*">
             <feature name="AMap4Plugin">
                 <param name="ios-package" value="CDVAMap"/>
             </feature>
         </config-file>
-        <header-file src="src/ios/CDVAMap4.h" />
-        <source-file src="src/ios/CDVAMap4.m" />
-        <header-file src="src/ios/MAMutablePolylineRenderer.h" />
-        <source-file src="src/ios/MAMutablePolylineRenderer.m" />
-        <header-file src="src/ios/MAMutablePolyline.h" />
-        <source-file src="src/ios/MAMutablePolyline.m" />
-        <header-file src="src/ios/SBGMapHeaderView.h" />
-        <source-file src="src/ios/SBGMapHeaderView.m" />
+        <header-file src="src/ios/Source/AMapPlugin.h" />
+        <source-file src="src/ios/Source/AMapPlugin.m" />
+        <header-file src="src/ios/Source/MAMutablePolylineRenderer.h" />
+        <source-file src="src/ios/Source/MAMutablePolylineRenderer.m" />
+        <header-file src="src/ios/Source/MAMutablePolyline.h" />
+        <source-file src="src/ios/Source/MAMutablePolyline.m" />
+        <header-file src="src/ios/Source/SBGMapHeaderView.h" />
+        <source-file src="src/ios/Source/SBGMapHeaderView.m" />
         
         <!--资源文件-->
-        <resource-file src="src/ios/MAMapKit.framework/AMap.bundle" />
-        <resource-file src="src/ios/locationIcon@2x.png" />
-        <resource-file src="src/ios/locationIcon@3x.png" />
-        <resource-file src="src/ios/naviBackIcon@2x.png" />
-        <resource-file src="src/ios/naviBackIcon@3x.png" />
+        <resource-file src="src/ios/Framework/MAMapKit.framework/AMap.bundle" />
+        <resource-file src="src/ios/Resource/locationIcon@2x.png" />
+        <resource-file src="src/ios/Resource/locationIcon@3x.png" />
+        <resource-file src="src/ios/Resource/naviBackIcon@2x.png" />
+        <resource-file src="src/ios/Resource/naviBackIcon@3x.png" />
         
         <!--引入framework-->
-        <framework src="src/ios/AMapLocationKit.framework" custom="true" />
-        <framework src="src/ios/AMapFoundationKit.framework" custom="true" />
-        <framework src="src/ios/MAMapKit.framework" custom="true" />
+        <framework src="src/ios/Framework/AMapLocationKit.framework" custom="true" />
+        <framework src="src/ios/Framework/AMapFoundationKit.framework" custom="true" />
+        <framework src="src/ios/Framework/MAMapKit.framework" custom="true" />
         
+        <!-- 引入系统框架 -->
         <framework src="UIKit.framework" />
         <framework src="Foundation.framework" />
         <framework src="CoreGraphics.framework" />
@@ -132,23 +134,23 @@
         <framework src="GLKit.framework" />
         <framework src="libstdc++.6.0.9.tbd"/>
         <framework src="libc++.tbd" />
-        
-        <!--XCode9.1存在BUG 需手动添加下-->
         <framework src="libz.tbd" />
+        
+        <!-- 设置配置文件 -->
         <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-            <string>App中签到等功能需要使用系统定位服务，请允许</string>
+            <string>$LOCATION_USAGE_DESCRIPTION</string>
         </config-file>
         <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
-            <string>App中签到等功能需要使用系统定位服务，请允许</string>
+            <string>$LOCATION_USAGE_DESCRIPTION</string>
         </config-file>
         
-        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
-            <dict>
-                <key>NSAllowsArbitraryLoads</key>
-                <true/>
-            </dict>
-        </config-file>
-        
+<!--        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">-->
+<!--            <dict>-->
+<!--                <key>NSAllowsArbitraryLoads</key>-->
+<!--                <true/>-->
+<!--            </dict>-->
+<!--        </config-file>-->
+
         <!--APIKey 请自行配置 参照高德官网-->
         <config-file target="*-Info.plist" parent="AMapApiKey">
             <string>$API_KEY_FOR_IOS</string>

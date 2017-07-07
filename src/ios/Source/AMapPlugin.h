@@ -1,7 +1,8 @@
 //
-//  CDVAMapLocation.h
-//  Created by tomisacat on 16/1/8.
+//  AMapPlugin.h
 //
+//  Created by UP on 2017/7/5.
+//  Copyright © 2017年 Silver Base Group Holdings Limited. All rights reserved.
 //
 
 #import <Cordova/CDVPlugin.h>
@@ -20,7 +21,7 @@ struct Yxtlocation {
     long timestamp;
 };
 
-@interface CDVAMap4Yxt : CDVPlugin <AMapLocationManagerDelegate, MAMapViewDelegate> {
+@interface AMapPlugin : CDVPlugin <AMapLocationManagerDelegate, MAMapViewDelegate> {
 	BOOL isStart;
     double lat;
     double lng;
