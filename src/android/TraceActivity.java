@@ -16,28 +16,26 @@ import android.widget.TextView;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.LocationSource;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.model.BitmapDescriptorFactory;
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.Marker;
-import com.amap.api.maps2d.model.MyLocationStyle;
-import com.amap.api.maps2d.model.PolylineOptions;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.LocationSource;
+import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MyLocationStyle;
+import com.amap.api.maps.model.PolylineOptions;
 import com.silverbase.salesmanage.R;
-import com.silverbase.salesmanage.MainActivity;
 
 public class TraceActivity extends Activity implements LocationSource,
         AMapLocationListener {
 
-    private AMap aMap;
-    private MapView mMapView;
+    private AMap                      aMap;
+    private MapView                   mMapView;
     private OnLocationChangedListener mListener;
-    private AMapLocationClient mlocationClient;
-    private AMapLocationClientOption mLocationOption;
+    private AMapLocationClient        mlocationClient;
+    private AMapLocationClientOption  mLocationOption;
 
     private String coordinates = null;
     private String tips = null;
@@ -211,7 +209,7 @@ public class TraceActivity extends Activity implements LocationSource,
             //设置定位监听
             mlocationClient.setLocationListener(this);
             //设置为高精度定位模式
-            mLocationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);
+            mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
             //设置定位参数
             mlocationClient.setLocationOption(mLocationOption);
             // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，

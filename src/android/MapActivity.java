@@ -19,28 +19,25 @@ import android.widget.TextView;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
-import com.amap.api.location.AMapLocationClientOption.AMapLocationMode;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.LocationSource;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.model.BitmapDescriptorFactory;
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.Marker;
-import com.amap.api.maps2d.model.MarkerOptions;
-import com.amap.api.maps2d.model.MyLocationStyle;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.LocationSource;
+import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.MyLocationStyle;
 import com.silverbase.salesmanage.R;
-import com.silverbase.salesmanage.MainActivity;
 
-public class MapActivity extends Activity implements LocationSource,
-        AMapLocationListener {
+public class MapActivity extends Activity implements LocationSource, AMapLocationListener {
 
-    private AMap aMap;
-    private MapView mMapView;
+    private AMap                      aMap;
+    private MapView                   mMapView;
     private OnLocationChangedListener mListener;
-    private AMapLocationClient mlocationClient;
-    private AMapLocationClientOption mLocationOption;
+    private AMapLocationClient        mlocationClient;
+    private AMapLocationClientOption  mLocationOption;
 
     private String coordinates = null;
     private String tips = null;
@@ -64,26 +61,26 @@ public class MapActivity extends Activity implements LocationSource,
 
         ActionBar actionBar = getActionBar();
         actionBar.hide();
-//
-//        getActionBar().setDisplayOptions(
-//                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE,
-//                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE);
-//
-//        TextView tv = new TextView(this);
-//        tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        tv.setGravity(Gravity.CENTER);
-//
-//        actionBar.setCustomView(tv,
-//                new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER));
-//        actionBar.setDisplayHomeAsUpEnabled(true);
+        //
+        //        getActionBar().setDisplayOptions(
+        //                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE,
+        //                ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_TITLE);
+        //
+        //        TextView tv = new TextView(this);
+        //        tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        //        tv.setGravity(Gravity.CENTER);
+        //
+        //        actionBar.setCustomView(tv,
+        //                new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER));
+        //        actionBar.setDisplayHomeAsUpEnabled(true);
         mTvTitilBack.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                setResult(RESULT_OK);
+                //                setResult(RESULT_OK);
                 finish();
                 /**测试发短信**/
-//                doSendSMSTo("13751845379" , "");
+                //                doSendSMSTo("13751845379" , "");
             }
         });
 
@@ -110,11 +107,14 @@ public class MapActivity extends Activity implements LocationSource,
         tips = bundle.getString("tips");
         title = bundle.getString("title");
         backColor = bundle.getString("backColor");
-        if (title != null ) {
+
+
+
+        if (title != null) {
             setTitle(title);
             mTvTitilName.setText(title);
         }
-        backColor = backColor==null?"#000000":backColor;
+        backColor = backColor == null ? "#000000" : backColor;
         mRlTitil.setBackgroundColor(Color.parseColor(backColor));
         mTvTitilBack.setOnClickListener(new View.OnClickListener() {
 
@@ -129,14 +129,13 @@ public class MapActivity extends Activity implements LocationSource,
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，实现地图生命周期管理
         mMapView.onCreate(savedInstanceState);
 
-        // init();
+         init();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.layout.menu, menu);
+        //        inflater.inflate(R.layout.menu, menu);
         return true;
     }
 
@@ -179,10 +178,10 @@ public class MapActivity extends Activity implements LocationSource,
         MyLocationStyle myLocationStyle = new MyLocationStyle();
         myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.drawable.location_marker));// 设置小蓝点的图标
 
-//        myLocationStyle.strokeColor(Color.BLACK);// 设置圆形的边框颜色
-//        myLocationStyle.radiusFillColor(Color.argb(100, 0, 0, 180));// 设置圆形的填充颜色
-//         myLocationStyle.anchor(int,int)//设置小蓝点的锚点
-//        myLocationStyle.strokeWidth(1.0f);// 设置圆形的边框粗细
+        //        myLocationStyle.strokeColor(Color.BLACK);// 设置圆形的边框颜色
+        //        myLocationStyle.radiusFillColor(Color.argb(100, 0, 0, 180));// 设置圆形的填充颜色
+        //         myLocationStyle.anchor(int,int)//设置小蓝点的锚点
+        //        myLocationStyle.strokeWidth(1.0f);// 设置圆形的边框粗细
 
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setLocationSource(this);// 设置定位监听
@@ -199,8 +198,7 @@ public class MapActivity extends Activity implements LocationSource,
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
         if (mListener != null && amapLocation != null) {
-            if (amapLocation != null
-                    && amapLocation.getErrorCode() == 0) {
+            if (amapLocation != null && amapLocation.getErrorCode() == 0) {
                 mListener.onLocationChanged(amapLocation);// 显示系统小蓝点
             } else {
                 String errText = "定位失败," + amapLocation.getErrorCode() + ": " + amapLocation.getErrorInfo();
@@ -221,7 +219,7 @@ public class MapActivity extends Activity implements LocationSource,
             //设置定位监听
             mlocationClient.setLocationListener(this);
             //设置为高精度定位模式
-            mLocationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);
+            mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
             //设置定位参数
             mlocationClient.setLocationOption(mLocationOption);
             // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
@@ -248,8 +246,8 @@ public class MapActivity extends Activity implements LocationSource,
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            Intent myIntent = new Intent(MapActivity.this, MainActivity.class);
-//            startActivity(myIntent);
+            //            Intent myIntent = new Intent(MapActivity.this, MainActivity.class);
+            //            startActivity(myIntent);
             this.finish();
         }
         return super.onKeyDown(keyCode, event);
@@ -270,17 +268,18 @@ public class MapActivity extends Activity implements LocationSource,
      */
     private void addMarkersToMap() {
 
-        String[] coArr   = coordinates.split(";");
+        String[] coArr = coordinates.split(";");
         String[] tipsArr = tips.split(",");
 
         if (coArr.length >= 1) {
-            for(int i =0;i< coArr.length;i++) {
+            for (int i = 0; i < coArr.length; i++) {
                 String[] t = coArr[i].split(",");
                 if (t[0].equals("")) {
                     continue;
                 }
                 aMap.addMarker(new MarkerOptions().anchor(0.5f, 0.5f)
-                        .position(new LatLng(Double.valueOf(t[0]),Double.valueOf(t[1]))).title(tipsArr[i]).draggable(true));
+                        .position(new LatLng(Double.valueOf(t[0]), Double.valueOf(t[1]))).title(tipsArr[i])
+                        .draggable(true));
             }
         }
     }
@@ -290,9 +289,9 @@ public class MapActivity extends Activity implements LocationSource,
      * @param phoneNumber
      * @param message
      */
-    public void doSendSMSTo(String phoneNumber,String message){
-        if(PhoneNumberUtils.isGlobalPhoneNumber(phoneNumber)){
-            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+phoneNumber));
+    public void doSendSMSTo(String phoneNumber, String message) {
+        if (PhoneNumberUtils.isGlobalPhoneNumber(phoneNumber)) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + phoneNumber));
             intent.putExtra("sms_body", message);
             startActivity(intent);
         }
