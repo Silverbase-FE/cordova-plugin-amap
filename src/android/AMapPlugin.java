@@ -6,20 +6,15 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.MapView;
-
-//import com.tomisacat.cordova.AMap4LocationPlugin;
-
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -30,10 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by liyi on 16/7/7.
- */
-public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListener {
+
+public class AMapPlugin extends CordovaPlugin implements AMapLocationListener {
 
     private static final String GET_LOCATION_ACTION   = "getCurrentPosition";
     private static final String START_LOCATION_ACTION = "startUpdatePosition";
@@ -44,9 +37,9 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
     private static final String HIDE_MAP_ACTION       = "hideMap";
     private static final String TRACE_MAP_ACTION      = "traceMap";
 
-    private static final String TAG = AMap4YxtPlugin.class.getSimpleName();
+    private static final String TAG = AMapPlugin.class.getSimpleName();
 
-    private AMapLocationClient curLocationClient = null;
+    private AMapLocationClient       curLocationClient = null;
     private AMapLocationClientOption curLocationOption = null;
     private CallbackContext curCallbackContext;//当前位置返回
 
@@ -66,9 +59,9 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
 
     private static final double EARTH_RADIUS = 6378.137;
 
-    protected ViewGroup root; // original Cordova layout
+    protected ViewGroup      root; // original Cordova layout
     protected RelativeLayout main; // new layout to support map
-    protected MapView mapView;
+    protected MapView        mapView;
 
     private static Context mContext;
 
@@ -92,6 +85,7 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
         Log.d(TAG, " action result:" + TRACE_MAP_ACTION.equals(action));
 
         if (SHOW_MAP_ACTION.equals(action)) {
+
             String coordinates = (String)args.get(0);
             String tips        = (String)args.get(1);
             String title       = (String)args.get(2);
@@ -104,11 +98,18 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
                 bundle.putString("tips", tips);
                 bundle.putString("title", title);
                 intent.putExtras(bundle);
+                intent.putExtra("coordinates", coordinates);
+                intent.putExtra("tips", tips);
+                intent.putExtra("title", title);
+
                 this.cordova.startActivityForResult(this, intent, 200);
+
+
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
+
             return true;
         }else if(HIDE_MAP_ACTION.equals(action)) {
             if (mapView != null) {
@@ -127,6 +128,7 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
                 bundle.putString("title", title);
                 intent.putExtras(bundle);
                 this.cordova.startActivityForResult(this, intent, 200);
+//                cordova.getActivity().startActivityForResult(intent,200);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -154,7 +156,7 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
 
                         curLocationClient = new AMapLocationClient(mContext);
                         curLocationClient.setLocationOption(curLocationOption);
-                        curLocationClient.setLocationListener(AMap4YxtPlugin.this);
+                        curLocationClient.setLocationListener(AMapPlugin.this);
                         curLocationClient.startLocation();
                     }
                 });
@@ -183,7 +185,7 @@ public class AMap4YxtPlugin extends CordovaPlugin implements AMapLocationListene
 
                         locationClient = new AMapLocationClient(mContext);
                         locationClient.setLocationOption(locationOption);
-                        locationClient.setLocationListener(AMap4YxtPlugin.this);
+                        locationClient.setLocationListener(AMapPlugin.this);
                         locationClient.startLocation();
                     }
                 });
