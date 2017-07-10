@@ -14,14 +14,14 @@ $> cordova plugin add cordova-plugin-amap--variable API_KEY_FOR_ANDROID="YOUR_AN
 
 *Github (current master, potentially unstable)*
 ```bash
-$> cordova plugin add https://github.com/mapsplugin/cordova-plugin-amap --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
+$> cordova plugin add https://github.com/Silverbase-FE/cordova-plugin-amap --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
 ```
 
 If you re-install the plugin, please always remove the plugin first, then remove the SDK
 
 ```bash
 $> cordova plugin rm cordova-plugin-amap
-$> cordova plugin rm com.googlemaps.ios
+$> cordova plugin rm com.amap.ios
 $> cordova plugin add cordova-plugin-amap --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
 ```
 
