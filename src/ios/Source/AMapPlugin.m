@@ -1,10 +1,11 @@
 //
-//  CDVAMapLocation.m
-//  Created by tomisacat on 16/1/8.
+//  AMapPlugin.m
 //
+//  Created by UP on 2017/7/5.
+//  Copyright © 2017年 Silver Base Group Holdings Limited. All rights reserved.
 //
 
-#import "CDVAMap4Yxt.h"
+#import "AMapPlugin.h"
 #import "MAMutablePolyline.h"
 #import "MAMutablePolylineRenderer.h"
 
@@ -20,7 +21,7 @@ static NSString* const INTERVAL_KEY = @"interval";
 
 static int const MAX_LENGTH = 10;
 
-@implementation CDVAMap4Yxt
+@implementation AMapPlugin
 {
     NSMutableArray * _tracking;
     CFTimeInterval _duration;
@@ -377,7 +378,7 @@ static int const MAX_LENGTH = 10;
     self.headerView = [[SBGMapHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.webView.bounds), 64)];
     self.headerView.title = @"定位";
     
-    __weak CDVAMap4Yxt *weakSelf = self;
+    __weak AMapPlugin *weakSelf = self;
     [self.headerView setBackCallBack:^{
         [weakSelf hideMap:nil];
     }];

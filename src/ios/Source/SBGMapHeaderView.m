@@ -1,9 +1,8 @@
 //
 //  SBGMapHeaderView.m
-//  salesManage
 //
-//  Created by silverbase on 2017/1/5.
-//
+//  Created by UP on 2017/7/5.
+//  Copyright © 2017年 Silver Base Group Holdings Limited. All rights reserved.
 //
 
 #import "SBGMapHeaderView.h"
