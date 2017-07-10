@@ -31,9 +31,9 @@
         </config-file>
 
         <!-- android -->
-        <source-file src="src/android/AMapPlugin.java" target-dir="src/com/amap/cordova" />
-        <source-file src="src/android/MapActivity.java" target-dir="src/com/amap/cordova" />
-        <source-file src="src/android/TraceActivity.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/com/amap/cordova/AMapPlugin.java" target-dir="src/android/com/amap/cordova" />
+        <source-file src="src/android/com/amap/cordova/MapActivity.java" target-dir="src/android/com/amap/cordova" />
+        <source-file src="src/android/com/amap/cordova/TraceActivity.java" target-dir="src/android/com/amap/cordova" />
         
         <source-file src="src/android/res/drawable-hdpi/location_marker.png" target-dir="res/drawable-hdpi" />
         <source-file src="src/android/res/drawable-land-hdpi/location_marker.png" target-dir="res/drawable-land-hdpi" />
@@ -49,12 +49,12 @@
         <source-file src="src/android/res/drawable-xhdpi/location_marker.png" target-dir="res/drawable-xhdpi" />
         <source-file src="src/android/res/drawable-xxhdpi/location_marker.png" target-dir="res/drawable-xxhdpi" />
         
-        <source-file src="src/android/plugin/Android_Map3D_SDK_V5.2.1_20170630.jar" target-dir="libs" />
-        <source-file src="src/android/plugin/AMap_Search_V5.2.1_20170630.jar" target-dir="libs" />
+        <source-file src="src/android/plugin/AMap3DMap_5.2.1_AMapLocation_3.4.1_20170630.jar" target-dir="src/android/plugin/" />
+        <source-file src="src/android/plugin/AMap_Search_V5.2.1_20170630.jar" target-dir="src/android/plugin/" />
         
         <source-file src="src/android/res/layout/map_activity.xml" target-dir="res/layout" />
         <source-file src="src/android/res/layout/trace_activity.xml" target-dir="res/layout" />
-        <source-file src="src/android/res/layout/comm_button_arrow.png" target-dir="res/mipmap" />
+        <source-file src="src/android/res/layout/comm_button_arrow.png" target-dir="res/layout" />
         
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <!--用于进行网络定位-->
