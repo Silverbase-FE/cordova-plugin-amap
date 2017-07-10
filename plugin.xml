@@ -31,9 +31,9 @@
         </config-file>
 
         <!-- android -->
-        <source-file src="src/android/AMapPlugin.java" target-dir="src/com/amap/cordova" />
-        <source-file src="src/android/MapActivity.java" target-dir="src/com/amap/cordova" />
-        <source-file src="src/android/TraceActivity.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/amap/AMapPlugin.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/amap/MapActivity.java" target-dir="src/com/amap/cordova" />
+        <source-file src="src/android/amap/TraceActivity.java" target-dir="src/com/amap/cordova" />
         
         <source-file src="src/android/res/drawable-hdpi/location_marker.png" target-dir="res/drawable-hdpi" />
         <source-file src="src/android/res/drawable-land-hdpi/location_marker.png" target-dir="res/drawable-land-hdpi" />
@@ -49,7 +49,7 @@
         <source-file src="src/android/res/drawable-xhdpi/location_marker.png" target-dir="res/drawable-xhdpi" />
         <source-file src="src/android/res/drawable-xxhdpi/location_marker.png" target-dir="res/drawable-xxhdpi" />
         
-        <source-file src="src/android/plugin/Android_Map3D_SDK_V5.2.1_20170630.jar" target-dir="libs" />
+        <source-file src="src/android/plugin/AMap3DMap_5.2.1_AMapLocation_3.4.1_20170630.jar" target-dir="libs" />
         <source-file src="src/android/plugin/AMap_Search_V5.2.1_20170630.jar" target-dir="libs" />
         
         <source-file src="src/android/res/layout/map_activity.xml" target-dir="res/layout" />
@@ -144,14 +144,6 @@
             <string>$LOCATION_USAGE_DESCRIPTION</string>
         </config-file>
         
-<!--        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">-->
-<!--            <dict>-->
-<!--                <key>NSAllowsArbitraryLoads</key>-->
-<!--                <true/>-->
-<!--            </dict>-->
-<!--        </config-file>-->
-
-        <!--APIKey 请自行配置 参照高德官网-->
         <config-file target="*-Info.plist" parent="AMapApiKey">
             <string>$API_KEY_FOR_IOS</string>
         </config-file>
