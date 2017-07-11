@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="cordova-plugin-amap" version="1.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-amap" version="1.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0">
     <name>cordova-plugin-amap</name>
-    <js-module name="cordova-plugins-amap" src="www/amap.js" >
-        <clobbers target="cordova-plugins-amap" />
+    <js-module name="cordova-plugin-amap" src="www/amap.js" >
+        <clobbers target="cordova-plugin-amap" />
     </js-module>
 
     <description>Amap Maps native SDK for Android and iOS</description>

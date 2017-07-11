@@ -7,7 +7,7 @@ Both [PhoneGap](http://phonegap.com/) and [Apache Cordova](http://cordova.apache
 
 ### Quick install
 
-*npm (current stable 1.0.1)*
+*npm (current stable 1.0.2)*
 ```bash
 $> cordova plugin add cordova-plugin-amap --variable API_KEY_FOR_ANDROID="YOUR_ANDROID_API_KEY_IS_HERE" --variable API_KEY_FOR_IOS="YOUR_IOS_API_KEY_IS_HERE"
 ```
