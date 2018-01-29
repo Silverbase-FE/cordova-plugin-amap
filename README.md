@@ -1,3 +1,5 @@
+## plugins 维护中。。。（全新V2.0即将发布）
+
 ## cordova Amap plugin for iOS and Android
 
 This plugin is a thin wrapper for [Amap Maps Android API](https://lbs.amap.com/api/android-sdk/summary/) and [Amap Maps SDK for iOS](https://lbs.amap.com/api/ios-sdk/summary/).
@@ -28,4 +30,6 @@ $> cordova plugin add cordova-plugin-amap --variable API_KEY_FOR_ANDROID="YOUR_A
 The SDK-Plugin won't be uninstalled automatically and you will stuck on an old version.
 
 -----
+
+### 暂时不能使用！
 
