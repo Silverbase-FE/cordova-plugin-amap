@@ -1,28 +1,37 @@
 {
   "name": "cordova-plugin-amap",
-  "version": "1.0.3",
-  "description": "amap maps plugin for cordova",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "1.0.1",
+  "description": "Amap Maps native SDK for Android and iOS",
+  "cordova": {
+    "id": "cordova-plugin-amap",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Silverbase-FE/cordova-plugin-amap.git"
+    "url": "https://github.com/Silverbase-FE/cordova-plugin-amap.git"
   },
   "keywords": [
     "amap",
     "maps",
-    "cordova",
-    "phonegap",
-    "ionic",
-    "android",
-    "ios"
+    "geo",
+    "amap maps",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
   ],
-  "author": "Sliverbase-FE",
-  "license": "ISC",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=6.2.0"
+    }
+  ],
+  "author": "Silverbase-FE",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/Silverbase-FE/cordova-plugin-amap/issues"
   },
-  "homepage": "https://github.com/Silverbase-FE/cordova-plugin-amap#readme"
+  "homepage": "https://github.com/Silverbase-FE/cordova-plugin-amap"
 }
