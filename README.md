@@ -62,7 +62,7 @@ if (typeof AMapPlugin != 'undefined') {
 	     console.log(data);
 	   }, function(err) {
 	   		// fail
-	     alert("err2" + JSON.stringify(err));
+	     alert("err" + JSON.stringify(err));
 	   });
     } else {
     	// fail
