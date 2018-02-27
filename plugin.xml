@@ -3,16 +3,23 @@
         id="cordova-plugin-amap" version="2.0.0">
 
   <name>cordova-plugin-amap</name>
-  <description>AMap For Cordova Plugin</description>
+
+  <description>Amap Maps native SDK for Android and iOS.
+This plugin allows your application to use the native Amap Maps views instead of the Amap Maps JavaScript API v3.
+The native map view is faster, use less network usage, display 3D views, and even work on offline network.</description>
+
   <author>dev@Silverbase-FE</author>
   <license>Apache 2.0 License</license>
-  <keywords>amap,amap</keywords>
-  <license>Apache 2.0</license>
+  <keywords>amap,maps,geo</keywords>
   <repo>https://github.com/Silverbase-FE/cordova-plugin-amap.git</repo>
   <issue>https://github.com/Silverbase-FE/cordova-plugin-amap/issues</issue>
 
   <engines>
-    <engine name="cordova" version=">=3.4.0" />
+    <engine name="cordova" version=">=7.1.0" />
+    <engine name="cordova-android" version=">=5.1.0" />
+    <engine name="cordova-ios" version=">=4.0.0" />
+    <engine name="apple-xcode" version=">=9.0.0" />
+    <engine name="apple-ios" version=">=10.0.0" />
   </engines>
 
   <asset src="www/amap.js" target="js/amap.js" />
@@ -22,6 +29,13 @@
   </js-module>
 
   <platform name="android">
+    <preference name="API_KEY_FOR_ANDROID" />
+
+    <info>
+        Official document
+        https://github.com/Silverbase-FE/cordova-plugin-amap/blob/master/README.md
+    </info>
+
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="AMapPlugin">
         <param name="android-package" value="com.yxt.cordova.AMapPlugin" />
@@ -64,7 +78,7 @@
       <!-- 定位需要的服务 -->
       <service android:name="com.amap.api.location.APSService" />
       <!--APIKey-->
-      <meta-data android:name="com.amap.api.v2.apikey" android:value="53d64e65189400132756cbe7f472a5dc" />
+      <meta-data android:name="com.amap.api.v2.apikey" android:value="$API_KEY_FOR_ANDROID" />
       <activity android:label="客户地图" android:name="com.yxt.cordova.MapActivity" />
       <activity android:label="我的轨迹" android:name="com.yxt.cordova.TraceActivity" />
     </config-file>
@@ -98,6 +112,8 @@
   </platform>
 
 <platform name="ios">
+    <preference name="API_KEY_FOR_IOS" />
+
     <config-file target="config.xml" parent="/*">
         <feature name="AMapPlugin">
             <param name="ios-package" value="CDVAMap4Yxt"/>
@@ -162,7 +178,7 @@
 
     <!-- APIKey 请自行配置 参照高德官网 -->
     <config-file target="*-Info.plist" parent="AMapApiKey">
-        <string>310649baa827cf5d88b5b4ecb36d6db6</string>
+        <string>$API_KEY_FOR_IOS</string>
     </config-file>
 
 </platform>
