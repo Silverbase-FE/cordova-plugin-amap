@@ -2,14 +2,14 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-amap" version="2.0.0">
 
-  <name>cordova-plugin-amap4yxt</name>
+  <name>cordova-plugin-amap</name>
   <description>AMap For Cordova Plugin</description>
-  <author>dev@piaoxiang</author>
+  <author>dev@Silverbase-FE</author>
   <license>Apache 2.0 License</license>
   <keywords>amap,amap</keywords>
   <license>Apache 2.0</license>
-  <repo>https://github.com/tomisacatyet/AMap4Location.git</repo>
-  <issue>https://github.com/tomisacatyet/AMap4Location/issues</issue>
+  <repo>https://github.com/Silverbase-FE/cordova-plugin-amap.git</repo>
+  <issue>https://github.com/Silverbase-FE/cordova-plugin-amap/issues</issue>
 
   <engines>
     <engine name="cordova" version=">=3.4.0" />
@@ -64,7 +64,7 @@
       <!-- 定位需要的服务 -->
       <service android:name="com.amap.api.location.APSService" />
       <!--APIKey-->
-      <meta-data android:name="com.amap.api.v2.apikey" android:value="413307b17ba392091eef64d967c4b196" />
+      <meta-data android:name="com.amap.api.v2.apikey" android:value="53d64e65189400132756cbe7f472a5dc" />
       <activity android:label="客户地图" android:name="com.yxt.cordova.MapActivity" />
       <activity android:label="我的轨迹" android:name="com.yxt.cordova.TraceActivity" />
     </config-file>
@@ -162,7 +162,7 @@
 
     <!-- APIKey 请自行配置 参照高德官网 -->
     <config-file target="*-Info.plist" parent="AMapApiKey">
-        <string>b8bd7233f7e3e8c527fa73529a747bb8</string>
+        <string>310649baa827cf5d88b5b4ecb36d6db6</string>
     </config-file>
 
 </platform>

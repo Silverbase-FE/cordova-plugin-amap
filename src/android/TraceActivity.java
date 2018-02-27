@@ -27,7 +27,7 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.PolylineOptions;
-import io.ionic.starter.amap.R;
+import com.amap.plugin.R;
 
 // import com.silverbase.salesmanage.R;
 // import com.silverbase.salesmanage.MainActivity;

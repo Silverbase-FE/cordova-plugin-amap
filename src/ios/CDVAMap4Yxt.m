@@ -1,8 +1,3 @@
-//
-//  CDVAMapLocation.m
-//  Created by tomisacat on 16/1/8.
-//
-//
 
 #import "CDVAMap4Yxt.h"
 #import "MAMutablePolyline.h"
@@ -125,10 +120,12 @@ static int const MAX_LENGTH = 10;
 
 //获取当前位置
 -(void) getCurrentPosition:(CDVInvokedUrlCommand*)command{
-    [self initLocationConfig];
-    
-    self.curLocationManager = [[AMapLocationManager alloc]init];
-    [self.curLocationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+
+    if (!self.curLocationManager) {
+        [self initLocationConfig];
+        self.curLocationManager = [[AMapLocationManager alloc] init];
+        [self.curLocationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    }
     
     [self.commandDelegate runInBackground:^{
         [self.curLocationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {

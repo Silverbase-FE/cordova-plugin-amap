@@ -30,7 +30,7 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
-import io.ionic.starter.amap.R;
+import com.amap.plugin.R;
 
 
 public class MapActivity extends Activity implements LocationSource,

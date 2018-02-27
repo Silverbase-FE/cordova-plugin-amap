@@ -1,10 +1,3 @@
-//
-//  SBGMapHeaderView.m
-//  salesManage
-//
-//  Created by silverbase on 2017/1/5.
-//
-//
 
 #import "SBGMapHeaderView.h"
 

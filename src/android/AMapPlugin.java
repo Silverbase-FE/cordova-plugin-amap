@@ -25,11 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import com.tomisacat.cordova.AMap4LocationPlugin;
 
-/**
- * Created by liyi on 16/7/7.
- */
 public class AMapPlugin extends CordovaPlugin implements AMapLocationListener {
 
     private static final String GET_LOCATION_ACTION   = "getCurrentPosition";
