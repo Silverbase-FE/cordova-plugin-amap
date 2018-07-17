@@ -1,8 +1,9 @@
 ## 插件维护...
-1、更新最新sdk
-2、解决已知bug
-3、优化插件自动化流程
-4、更新demo
+
+1. 更新最新sdk
+2. 解决已知bug
+3. 优化插件自动化流程
+4. 更新demo
 
 ## cordova Amap plugin for iOS and Android
 
