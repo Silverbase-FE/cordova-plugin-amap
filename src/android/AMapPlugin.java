@@ -136,17 +136,22 @@ public class AMapPlugin extends CordovaPlugin implements AMapLocationListener {
                 cordova.getThreadPool().execute(new Runnable() {
                     @Override
                     public void run() {
-                        curLocationOption = new AMapLocationClientOption();
-                        curLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-                        curLocationOption.setNeedAddress(true); //是否返回地址信息
-                        curLocationOption.setOnceLocation(false); //是否单次定位
-                        curLocationOption.setWifiScan(true); //是否主动刷新WIFI
-                        curLocationOption.setMockEnable(false); //设置是否允许模拟位置, 默认为false
-                        curLocationOption.setGpsFirst(false); //优先返回GPS定位
-                        curLocationOption.setInterval(2 * 1000); //设置发起定位请求的时间间隔
-                        curLocationOption.setHttpTimeOut(10 * 1000);//设置联网超时时间 10s
+                        if (curLocationOption == null) {
+                            curLocationOption = new AMapLocationClientOption();
+                            curLocationClient = new AMapLocationClient(mContext);
+                        }
 
-                        curLocationClient = new AMapLocationClient(mContext);
+                        curLocationOption.setOnceLocation(true); //是否单次定位
+                        curLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+//                        curLocationOption.setInterval(minInteval * 1000); //设置发起定位请求的时间间隔
+//                        curLocationOption.setGpsFirst(false); //优先返回GPS定位
+//                        curLocationOption.setNeedAddress(false); // 可选，设置是否返回逆地理地址信息。默认是true
+//                        curLocationOption.setHttpTimeOut(11 * 1000);//设置联网超时时间 30s
+//                        curLocationOption.setWifiScan(true); // 可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
+//                        curLocationOption.setMockEnable(false);
+//                        curLocationOption.setSensorEnable(false); // 可选，设置是否使用传感器。默认是false
+//                        curLocationOption.setLocationCacheEnable(true); //可选，设置是否使用缓存定位，默认为true
+
                         curLocationClient.setLocationOption(curLocationOption);
                         curLocationClient.setLocationListener(AMapPlugin.this);
                         curLocationClient.startLocation();

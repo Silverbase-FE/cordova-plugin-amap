@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-amap" version="2.0.0">
+        id="cordova-plugin-amap" version="2.0.1">
 
   <name>cordova-plugin-amap</name>
 
@@ -61,9 +61,7 @@ The native map view is faster, use less network usage, display 3D views, and eve
     <source-file src="src/android/res/drawable-xhdpi/location_marker.png" target-dir="app/src/main/res/drawable-xhdpi" />
     <source-file src="src/android/res/drawable-xxhdpi/location_marker.png" target-dir="app/src/main/res/drawable-xxhdpi" />
 
-    <source-file src="src/android/android-support-v4.jar" target-dir="app/src/main/libs" />
-    <source-file src="src/android/AMap_Location_V3.7.0_20171218.jar" target-dir="app/src/main/libs" />
-    <source-file src="src/android/Android_Map3D_SDK_V5.7.0_20171229.jar" target-dir="app/src/main/libs" />
+    <source-file src="src/android/AMap3DMap_6.3.0_AMapLocation_4.1.0_20180619.jar" target-dir="app/src/main/libs" />
     <source-file src="src/android/arm64-v8a" target-dir="app/src/main/libs" />
     <source-file src="src/android/armeabi" target-dir="app/src/main/libs" />
     <source-file src="src/android/armeabi-v7a" target-dir="app/src/main/libs" />
