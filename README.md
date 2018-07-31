@@ -103,7 +103,7 @@ if (typeof AMapPlugin != 'undefined') {
 </pre>
 
 ### Android
-![](https://upload-images.jianshu.io/upload_images/1876100-ab4ad72747b56941.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+![](https://raw.githubusercontent.com/Silverbase-FE/testApp-plugin-amap/master/screenshots/Screenshot_2018-08-01-00-45-23-372_com.amap.plugi.png)
 
 ### iOS
 ![](https://upload-images.jianshu.io/upload_images/1876100-bf972cf0e66c9586.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
