@@ -157,7 +157,9 @@ The native map view is faster, use less network usage, display 3D views, and eve
     <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
         <string>App中签到等功能需要使用系统定位服务，请允许</string>
     </config-file>
-
+    <config-file target="*-Info.plist" parent="NSLocationAlwaysAndWhenInUseUsageDescription">
+        <string>App中签到等功能需要使用系统定位服务，请允许</string>
+    </config-file>
     <config-file target="-Info.plist" parent="NSPhotoLibraryUsageDescription">
         <string>是否允许此App访问您的相册?</string>
     </config-file>
